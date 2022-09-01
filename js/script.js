@@ -15,3 +15,11 @@ let pokemonList = [
         types: ['poison', 'flying']
     }
 ]
+
+for (let i = 0; i < pokemonList.length; i++) { // loop to pokemon characters 
+    if (pokemonList[i].height > 4) {
+        document.write(`${pokemonList[i].name}height${pokemonList[i].height}<br>`) 
+    } else {
+        document.write(`${pokemonList[i].name}height${pokemonList[i].height}<br>`)
+    }
+}
