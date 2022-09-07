@@ -8,7 +8,7 @@ let pokemonList = [
         name: 'Eve',
         height: 5, 
         type: 'fire'
-    }
+    },
     {
         name: 'Nando',
         height: 7, 
@@ -17,9 +17,9 @@ let pokemonList = [
 ]
 
 for (let i = 0; i < pokemonList.length; i++) { // loop to pokemon characters 
-    if (pokemonList[i].height > 4) {
-        document.write(`${pokemonList[i].name}height${pokemonList[i].height}<br>`) 
-    } else {
-        document.write(`${pokemonList[i].name}height${pokemonList[i].height}<br>`)
-    }
+    if (pokemonList[i].height > 5) {
+        document.write('<p>' + pokemonList[i].name + ' height: '  + pokemonList[i].height + ' -Wow, that\'s huge!' + '</p>');
+     } else {
+       document.write('<p>' + pokemonList[i].name + ' height: '  + pokemonList[i].height + '</p>');
+     }
 }
