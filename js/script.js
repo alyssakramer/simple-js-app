@@ -22,4 +22,4 @@ for (let i = 0; i < pokemonList.length; i++) { // loop to pokemon characters
      } else {
        document.write('<p>' + pokemonList[i].name + ' height: '  + pokemonList[i].height + '</p>');
      }
-}
+    }
