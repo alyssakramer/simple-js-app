@@ -38,6 +38,6 @@ console.log(pokemonRepository.getAll()); // [ { name: 'Pikachu' }]
    //  }
    // }
 
-   pokemonList.forEach(function(pokemon) {
+   pokemonRepository.getAll().forEach(function(pokemon) {
     console.log(pokemon.name + ' is ' + pokemon.height + ' tall and ' + pokemon.type + ' type ');
    }); 
