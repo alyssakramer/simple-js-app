@@ -6,7 +6,7 @@ let pokemonRepository = (function () {
         if (
             typeof pokemon === "object" &&
             "name" in pokemon &&
-            "detailsUrl" in Pokemon
+            "detailsUrl" in pokemon
         ) {
             pokemonList.push(pokemon);
         } else {
@@ -33,7 +33,7 @@ let pokemonRepository = (function () {
       }
       
       function loadList() {
-        return fetch(apiUrl).then(function (response) {
+        return fetch(apiURL).then(function (response) {
           return response.json();
         }).then(function (json) {
           json.results.forEach(function (item) {
