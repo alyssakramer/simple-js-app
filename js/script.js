@@ -63,11 +63,60 @@ let pokemonRepository = (function () {
         });
       }
 
-      function showDetails(item) {
-        pokemonRepository.loadDetails(item).then(function () {
-            console.log(item);
+      // going to add more in a later task
+    function showDetails(pokemon) {
+        loadDetails(pokemon).then(function() {
+            showDetailsModal(pokemon);
         });
-      }
+    };
+
+    function showDetailsModal(pokemon) {
+        let modalContainer = document.querySelector('.pokemon-details-modal');
+
+        modalContainer.innerText = pokemonList;
+
+        // create all elements in the DOM
+        let modal = document.createElement('div');
+        modal.classList.add('modal');
+
+        let title = document.createElement('h1');
+        title.innerText = pokemon.name;
+
+        let height = document.createElement('p');
+        height.innerText = 'Height: ' + pokemon.height;
+
+        let image = document.createElement('img');
+        image.src = pokemon.imageUrl;
+
+        // appends the above elements to the modal container
+        modal.appendChild(title);
+        modal.appendChild(height);
+        modal.appendChild(image);
+        modalContainer.appendChild(modal);
+
+        // hides the modal when clicking on the modal container
+        modalContainer.addEventListener('click', (e) => {
+            let target = e.target;
+            if (target === modalContainer) {
+                hideModal();
+            }
+        })
+
+        modalContainer.classList.add('is-visible');
+    }
+
+    function hideModal() {
+        let modalContainer = document.querySelector('.pokemon-details-modal');
+        modalContainer.classList.remove('is-visible');
+    }
+
+    // hides the modal when pressing the escape key
+    window.addEventListener('keydown', (e) => {
+        let modalContainer = document.querySelector('.pokemon-details-modal');
+        if(e.key === 'Escape' && modalContainer.classList.contains('is-visible')) {
+            hideModal();
+        }
+    })
     
 
       return {
@@ -88,4 +137,3 @@ let pokemonRepository = (function () {
             pokemonRepository.addListItem(pokemon);
         });
     });
-
