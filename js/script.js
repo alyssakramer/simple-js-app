@@ -1,7 +1,7 @@
 let pokemonRepository = (function () {
     let pokemonList = [];
     let apiURL = 'https://pokeapi.co/api/v2/pokemon/?limit=150'
-
+    
     function add(pokemon) {
         if (
             typeof pokemon === "object" &&
@@ -73,7 +73,6 @@ let pokemonRepository = (function () {
     function showDetailsModal(pokemon) {
         let modalContainer = document.querySelector('.pokemon-details-modal');
 
-        modalContainer.innerText = pokemonList;
 
         // create all elements in the DOM
         let modal = document.createElement('div');
