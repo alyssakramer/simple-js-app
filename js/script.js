@@ -81,7 +81,7 @@ let pokemonRepository = (function () {
         let closeButtonElement = document.createElement('button');
         closeButtonElement.classList.add('modal-close');
         closeButtonElement.innerText = 'Close';
-        closeButtonElement.addEventListener('click', hideModal);
+        closeButtonElement.addEventListener('click', hideModal)
 
         let title = document.createElement('h1');
         title.innerText = pokemon.name;
@@ -113,18 +113,18 @@ let pokemonRepository = (function () {
         }
 
 
-    function hideModal() {
-        let modalContainer = document.querySelector('.pokemon-details-modal');
-        modalContainer.classList.remove('is-visible');
-    }
-
-    // hides the modal when pressing the escape key
-    window.addEventListener('keydown', (e) => {
-        let modalContainer = document.querySelector('.pokemon-details-modal');
-        if(e.key === 'Escape' && modalContainer.classList.contains('is-visible')) {
-            hideModal();
-        }
-    })
+        function hideModal() {
+          let modalContainer = document.querySelector('.pokemon-details-modal');
+          modalContainer.classList.remove('is-visible');
+      }
+  
+      // hides the modal when pressing the escape key
+      window.addEventListener('keydown', (e) => {
+          let modalContainer = document.querySelector('.pokemon-details-modal');
+          if(e.key === 'Escape' && modalContainer.classList.contains('is-visible')) {
+              hideModal();
+          }
+      })
     
 
       return {
@@ -132,7 +132,8 @@ let pokemonRepository = (function () {
         getAll: getAll,
         addListItem: addListItem,
         loadList: loadList,
-        loadDetails: loadDetails
+        loadDetails: loadDetails, 
+        showDetailsModal: showDetailsModal
       };
     })();
     
