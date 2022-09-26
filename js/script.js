@@ -72,33 +72,25 @@ let pokemonRepository = (function () {
     };
 
     function showDetailsModal(pokemon) {
-        let modalContainer = document.querySelector('.pokemon-details-modal');
+        let modalBody = $('.modal-body');
+        let modalTitle = $('.modal-title');
+        let modalHeader = $('modal-header');
+        modalTitle.empty();
+        modalBody.empty();
 
+        let nameElement = $('<h1>' + pokemon.name + '</h1>');
+        let imageElementFront = $('<img class="modal-img" style="width: 50%">');
+        imageElementFront.attr("src", pokemon.imgUrlFront);
+        let heightELement = $('<p>' + "height: " + pokemon.height + '</p>')
+        let typesElement = $('<p>' + "type: " + pokemon.type + '</p>')
 
-        // create all elements in the DOM
-        let modal = document.createElement('div');
-        modal.classList.add('modal');
-
-        let closeButtonElement = document.createElement('button');
-        closeButtonElement.addClass('btn-secondary');
-        closeButtonElement.innerText = 'Close';
-        closeButtonElement.addEventListener('click', hideModal)
-
-        let title = document.createElement('h1');
-        title.innerText = pokemon.name;
-
-        let height = document.createElement('p');
-        height.innerText = 'Height: ' + pokemon.height;
-
-        let image = document.createElement('img');
-        image.src = pokemon.imageUrl;
 
         // appends the above elements to the modal container
-        modal.appendChild(closeButtonElement)
-        modal.appendChild(title);
-        modal.appendChild(height);
-        modal.appendChild(image);
-        modalContainer.appendChild(modal);
+        modalTitle.append(nameElement);
+        modalBody.append(imageElementFront);
+        modalBody.append(heightElement);
+        modalBody.append(typeElement);
+        
 
         modalContainer.classList.add('is-visible');
         
