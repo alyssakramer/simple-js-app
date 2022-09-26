@@ -21,10 +21,11 @@ let pokemonRepository = (function () {
       // Add single pokemon item in UL list as button, assign pokemon name to button and when button clicked, log name into console
       function addListItem(pokemon){
         let pokemonList = document.querySelector('.pokemon-list');
+        pokemonList.addClass(group-list-item)
         let listpokemon = document.createElement('li');
         let button = document.createElement('button');
         button.innerText = pokemon.name;
-        button.classList.add('button-class');
+        button.addClass('btn-primary');
         listpokemon.appendChild(button);
         pokemonList.appendChild(listpokemon);
         button.addEventListener('click', function (event) {
@@ -79,7 +80,7 @@ let pokemonRepository = (function () {
         modal.classList.add('modal');
 
         let closeButtonElement = document.createElement('button');
-        closeButtonElement.classList.add('modal-close');
+        closeButtonElement.addClass('btn-secondary');
         closeButtonElement.innerText = 'Close';
         closeButtonElement.addEventListener('click', hideModal)
 
