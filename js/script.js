@@ -21,11 +21,12 @@ let pokemonRepository = (function () {
       // Add single pokemon item in UL list as button, assign pokemon name to button and when button clicked, log name into console
       function addListItem(pokemon){
         let pokemonList = document.querySelector('.pokemon-list');
-        pokemonList.addClass(group-list-item)
         let listpokemon = document.createElement('li');
         let button = document.createElement('button');
         button.innerText = pokemon.name;
-        button.addClass('btn-primary');
+        button.setAttribute('data-toggle', 'modal')
+        button.setAttribute('data-target', '#exampleModal')
+        button.classList.add('btn');
         listpokemon.appendChild(button);
         pokemonList.appendChild(listpokemon);
         button.addEventListener('click', function (event) {
@@ -80,9 +81,9 @@ let pokemonRepository = (function () {
 
         let nameElement = $('<h1>' + pokemon.name + '</h1>');
         let imageElementFront = $('<img class="modal-img" style="width: 50%">');
-        imageElementFront.attr("src", pokemon.imgUrlFront);
-        let heightELement = $('<p>' + "height: " + pokemon.height + '</p>')
-        let typesElement = $('<p>' + "type: " + pokemon.type + '</p>')
+        imageElementFront.attr('src', pokemon.imgUrlFront);
+        let heightElement = $('<p>' + "height: " + pokemon.height + '</p>')
+        let typeElement = $('<p>' + "type: " + pokemon.type + '</p>')
 
 
         // appends the above elements to the modal container
@@ -90,35 +91,17 @@ let pokemonRepository = (function () {
         modalBody.append(imageElementFront);
         modalBody.append(heightElement);
         modalBody.append(typeElement);
-        
 
-        modalContainer.classList.add('is-visible');
-        
-
-        modalContainer.addEventListener('click', (e) => {
-            // Since this is also triggered when clicking INSIDE the modal
-            // We only want to close if the user clicks directly on the overlay
-            let target = e.target;
-            if (target === modalContainer) {
-              hideModal();
-            }
-          })
-        }
-
-
-        function hideModal() {
-          let modalContainer = document.querySelector('.pokemon-details-modal');
-          modalContainer.classList.remove('is-visible');
-      }
-  
-      // hides the modal when pressing the escape key
-      window.addEventListener('keydown', (e) => {
-          let modalContainer = document.querySelector('.pokemon-details-modal');
-          if(e.key === 'Escape' && modalContainer.classList.contains('is-visible')) {
-              hideModal();
+      
+        exampleModal.addEventListener('click', (e) => {
+          // Since this is also triggered when clicking INSIDE the modal
+          // We only want to close if the user clicks directly on the overlay
+          let target = e.target;
+          if (target === exampleModal) {
+            hideModal();
           }
-      })
-    
+        })
+      }
 
       return {
         add: add,
@@ -138,4 +121,4 @@ let pokemonRepository = (function () {
         pokemonRepository.getAll().forEach(function (pokemon) {
             pokemonRepository.addListItem(pokemon);
         });
-    });
+      }); 
