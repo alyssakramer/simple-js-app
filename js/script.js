@@ -73,35 +73,35 @@ let pokemonRepository = (function () {
     };
 
     function showDetailsModal(pokemon) {
-        let modalBody = $('.modal-body');
-        let modalTitle = $('.modal-title');
-        let modalHeader = $('modal-header');
-        modalTitle.empty();
-        modalBody.empty();
+      let modalBody = $('.modal-body');
+      let modalTitle = $('.modal-title');
+      let modalHeader = $('modal-header');
+      const pokemonTypes = Array.isArray(pokemon.types) ? pokemon.types.map(t => t.type.name).join(", ") : ""
+      modalTitle.empty();
+      modalBody.empty();
 
-        let nameElement = $('<h1>' + pokemon.name + '</h1>');
-        let imageElementFront = $('<img class="modal-img" style="width: 50%">');
-        imageElementFront.attr('src', pokemon.imgUrlFront);
-        let heightElement = $('<p>' + "height: " + pokemon.height + '</p>')
-        let typeElement = $('<p>' + "type: " + pokemon.type + '</p>')
+      let nameElement = $('<h1>' + pokemon.name + '</h1>');
+      let imageElementFront = $('<img class="modal-img" style="width: 50%">');
+      imageElementFront.attr('src', pokemon.imageUrl);
+      let heightElement = $('<p>' + "height: " + pokemon.height + '</p>')
+      let typeElement = $('<p>' + "type: " + pokemonTypes + '</p>')
 
+      // appends the above elements to the modal container
+      modalTitle.append(nameElement);
+      modalBody.append(imageElementFront);
+      modalBody.append(heightElement);
+      modalBody.append(typeElement);
 
-        // appends the above elements to the modal container
-        modalTitle.append(nameElement);
-        modalBody.append(imageElementFront);
-        modalBody.append(heightElement);
-        modalBody.append(typeElement);
-
-      
-        exampleModal.addEventListener('click', (e) => {
-          // Since this is also triggered when clicking INSIDE the modal
-          // We only want to close if the user clicks directly on the overlay
-          let target = e.target;
-          if (target === exampleModal) {
-            hideModal();
-          }
-        })
-      }
+    
+      exampleModal.addEventListener('click', (e) => {
+        // Since this is also triggered when clicking INSIDE the modal
+        // We only want to close if the user clicks directly on the overlay
+        let target = e.target;
+        if (target === exampleModal) {
+          hideModal();
+        }
+      })
+    }
 
       return {
         add: add,
