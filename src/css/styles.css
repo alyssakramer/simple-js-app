@@ -1,0 +1,37 @@
+/*
+Color used 
+Text color (Black): #000
+Primary Color (Pinkish Red): #fe2c54
+Secondary Color (Yellow): #ffdd12
+*/
+
+:root {
+  --primary-color: #fe2c54;
+  --secondary-color: #ffdd12;
+  --tertiary-color: #489c79;
+  --font-weight: 700;
+}
+body {
+  font-family: 'Mukta', sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.6;
+  text-align: center;
+}  
+.btn-primary {
+  background-color: #489c79;
+  border: none;
+  color: white;
+  padding: 16px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  -webkit-transition-duration: 0.4s;
+  transition-duration: 0.4s;
+  cursor: pointer;
+  background-color: white;
+  color: black;
+  border: 2px solid #489c79;
+}
